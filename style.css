@@ -93,6 +93,7 @@ body *{
     /* alinhando o elemento no eixo X e Y */
     animation: slide-back 0.3s;
     /* não foi preciso do fowards pois já existia o left:0 */
+    /* teste */
 }
 
 .light #switch button {
