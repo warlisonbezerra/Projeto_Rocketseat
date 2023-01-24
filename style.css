@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light{
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+}
+
+body{
+    /* background-image: url(./assets/bg-mobile.jpg);
+             utilizar esse método para trazer do figma: forma 1
+    background-repeat: no-repeat;
+    background-position:top center;
+    background-size: cover; */
+
+    /* fazer em uma so linha de código: forma 2 */
+    /* background: color image repeat position/size */
+    background: var(--bg-url) no-repeat top 
+    center/cover;
+}
+
+
+body *{
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container{
+    width: 360px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+/* profile */
+#profile{
+    text-align: center;
+    /* fazer com que o PROFILE todo, receba esse comando */
+    padding: 24px;
+}
+
+#profile img {
+    width: 112px;
+    /* display: block;
+    /* em elementos INLINE, eu não consigo tacar margin
+    tem que passar para BLOCK
+    margin: auto;
+    /* margin auto, porque, nesse modelo, precisei transformar o display
+    em block para conseguir mexer nele. E assim o margin funcionaria */
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+/* switch */
+#switch{
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    /* posicinamento da bolinha */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50% );
+    /* alinhando o elemento no eixo X e Y */
+}
+
+.light #switch button {
+    right: 0;
+    left: initial;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* links */
+
+ul{
+    list-style: none;
+    display: flex;
+    /* Deixa eles separados em LINHA */
+    flex-direction: column;
+    /* Joga os elementos de LINHA para COLUNA */
+    gap: 16px;
+    /* GAP da espaço entre os elementos. */
+    padding: 24px 0;
+    /* espaço da caixa. 24 é superior e inferior e 0 é laterais */
+}
+
+ul li a{
+    display: flex;
+    justify-content: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    /* Branco com 0.1 de transparência */
+    border: 1px solid var(--stroke-color);
+    /* RGBA = RED, GREEN, BLUE, ALPHA = 255 cores + alpha = transparência */
+    /* Branco com 0.5 de transparência. Pode ir de 0.1 a 1*/
+    border-radius: 8px;
+    /* Arredondamento das bordas */
+    backdrop-filter: blur(4px);
+    /* Embaçado */
+    -webkit-backdrop-filter: blur(4px);
+    /* Prefixo que alguns browsers vão usar para fazer o efeito */
+    text-decoration: none;
+    /* tirar a linha debaixo que acompanha as letras */
+    font-weight: 500;
+
+    transition: background  .3s;
+    /* efeito de transição dentro do background do elemento */
+}
+/* pseudo-selector */
+ul li a:hover{
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* Social links */
+#social-links{
+    display: flex;
+    /* Deixando eles em LINHA */
+    justify-content: center;
+    /* Alinhando os itens ao meio */
+    /* gap: 32px; */
+    /* Fazendo ter espaço entre os elementos */
+    padding: 16px;
+    /* Espaço da caixa */
+    font-size: 24px;
+    /* Tamanho dos elementos(dos social-links) */
+}
+
+#social-links a{
+    /* Usado para alinhar os icones ao centro do border-radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+    /* usado para criar uma círculo */
+}
+
+#social-links a:hover{
+    background: var(--highlight-color);
+}
+
+footer{
+    padding: 1px;
+    text-align: center;
+    font-size: 10px;
+}
